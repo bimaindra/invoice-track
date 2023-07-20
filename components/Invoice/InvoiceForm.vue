@@ -13,7 +13,7 @@
 					<input
 						v-model="biller.name"
 						id="billerName"
-						placeholder="Biller's name"
+						placeholder="Name"
 						class="form-input"
 						required />
 				</div>

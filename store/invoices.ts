@@ -120,18 +120,6 @@ export const useInvoicesStore = defineStore('invoices', {
 		},
 	},
 	getters: {
-		sortInvoice: (state) => (payload: string) => {
-			return state.invoices.sort((a, b) => {
-				const statusA = a.status.toLowerCase();
-				const statusB = payload.toLowerCase();
-
-				if (statusA > statusB) {
-					return 1;
-				}
-
-				return 0;
-			});
-		},
 		getInvoiceById: (state) => (id: number) => {
 			return state.invoices.find((invoice) => invoice.id === id);
 		},

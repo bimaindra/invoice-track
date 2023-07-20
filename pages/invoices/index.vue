@@ -4,12 +4,12 @@
 		<div class="flex justify-between items-center mb-12">
 			<div>
 				<h1 class="text-3xl lg:text-4xl font-bold mb-2">Invoices</h1>
-				<!--<p>There are {{ store.invoices.length }} total invoices</p>-->
+				<p>There are {{ invoices.length }} total invoices</p>
 			</div>
 			<div class="flex gap-4 items-center">
 				<select
 					v-model="filter"
-					@change="filterInvoice(filter)">
+					@change="">
 					<option value="">Filter</option>
 					<option value="draft">Draft</option>
 					<option value="pending">Pending</option>
@@ -43,6 +43,7 @@
 			};
 
 			return {
+				invoices: invoicesStore.invoices,
 				filter,
 				filterInvoice,
 			};
