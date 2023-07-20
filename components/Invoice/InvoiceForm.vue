@@ -225,7 +225,7 @@
 					projectDescription: projectDescription.value,
 					paymentTerms: paymentTerms.value,
 					status: 'draft',
-					items,
+					items: items.value,
 				};
 
 				if (invoice) {

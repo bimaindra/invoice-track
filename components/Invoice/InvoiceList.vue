@@ -6,7 +6,7 @@
 			:key="invoice.id">
 			<NuxtLink
 				:to="`/invoices/${invoice.id}`"
-				class="hover:bg-slate-50 transition-colors grid grid-cols-2 md:grid-cols-10 md:items-center gap-4 text-center px-4 py-6 my-4 border rounded-md">
+				class="hover:bg-slate-50 transition grid grid-cols-2 md:grid-cols-10 md:items-center gap-4 text-center px-4 py-6 my-4 border rounded-md">
 				<div class="md:hidden">
 					<p class="text-ellipsis overflow-hidden mb-4">
 						<b>#{{ invoice.id }}</b>
@@ -19,7 +19,7 @@
 						>IDR
 						{{
 							invoice.items.reduce(
-								(acc, currentValue) => acc + currentValue.total,
+								(acc, currentValue) => acc + currentValue.price * currentValue.qty,
 								0
 							)
 						}}</p
@@ -47,7 +47,7 @@
 						>IDR
 						{{
 							invoice.items.reduce(
-								(acc, currentValue) => acc + currentValue.total,
+								(acc, currentValue) => acc + currentValue.price * currentValue.qty,
 								0
 							)
 						}}</b
