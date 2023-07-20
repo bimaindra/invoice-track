@@ -113,6 +113,20 @@ export const useInvoicesStore = defineStore('invoices', {
 				this.invoices[index] = updatedInvoice;
 			}
 		},
+		updatePaidInvoice(invoiceId: number) {
+			this.invoices = this.invoices.map((invoice) => {
+				if (invoice.id === invoiceId) {
+					return {
+						...invoice,
+						status: 'paid',
+					};
+				}
+
+				return {
+					...invoice,
+				};
+			});
+		},
 		deleteInvoice(invoiceId: number) {
 			this.invoices = this.invoices.filter(
 				(invoice) => invoice.id !== invoiceId

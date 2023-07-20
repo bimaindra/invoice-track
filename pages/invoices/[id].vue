@@ -14,7 +14,8 @@
 				Delete
 			</button>
 			<button
-				@click=""
+				v-if="invoice.status !== 'paid'"
+				@click="markInvoiceAsPaid(invoice.id)"
 				class="btn btn-primary">
 				<span class="hidden md:inline-block">Mark as</span> Paid
 			</button>
@@ -129,9 +130,15 @@
 				router.push('/invoices');
 			};
 
+			const markInvoiceAsPaid = (id) => {
+				invoicesStore.updatePaidInvoice(id);
+				router.push('/invoices');
+			};
+
 			return {
 				invoice,
 				deleteInvoice,
+				markInvoiceAsPaid,
 			};
 		},
 	};
