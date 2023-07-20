@@ -7,7 +7,9 @@
 				<!--<p>There are {{ store.invoices.length }} total invoices</p>-->
 			</div>
 			<div class="flex gap-4 items-center">
-				<select>
+				<select
+					v-model="filter"
+					@change="filterInvoice(filter)">
 					<option value="">Filter</option>
 					<option value="draft">Draft</option>
 					<option value="pending">Pending</option>
@@ -16,7 +18,7 @@
 				<router-link
 					to="/invoices/add"
 					class="btn btn-primary"
-					>+ New <span class="hidden md:block">Invoice</span></router-link
+					>+ New <span class="hidden md:inline">Invoice</span></router-link
 				>
 			</div>
 		</div>
@@ -25,11 +27,25 @@
 </template>
 
 <script>
+	import { useInvoicesStore } from '@/store/invoices';
 	import InvoiceList from '@/components/Invoice/InvoiceList.vue';
 
 	export default {
 		components: {
 			InvoiceList,
+		},
+		setup() {
+			const invoicesStore = useInvoicesStore();
+			const filter = ref('');
+
+			const filterInvoice = (payload) => {
+				//invoicesStore.sortInvoice(payload);
+			};
+
+			return {
+				filter,
+				filterInvoice,
+			};
 		},
 	};
 </script>

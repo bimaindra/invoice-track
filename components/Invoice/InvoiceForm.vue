@@ -1,17 +1,19 @@
 <template>
 	<div>
+		<h1 class="text-3xl lg:text-4xl font-bold mb-6">{{ formTitle }}</h1>
 		<form @submit.prevent="submitForm">
 			<div class="py-4 flex flex-col gap-4">
-				<h2 class="text-2xl font-bold">Bill From</h2>
+				<h2 class="text-xl font-bold">Bill From</h2>
 				<div>
 					<label
 						for="billerName"
 						class="mb-2 block"
-						>Biller Name</label
+						>Name</label
 					>
 					<input
 						v-model="biller.name"
 						id="billerName"
+						placeholder="Biller's name"
 						class="form-input"
 						required />
 				</div>
@@ -19,7 +21,7 @@
 					<label class="mb-2 block">Address</label>
 					<textarea
 						name="address"
-						placeholder="Biller's address"
+						placeholder="Address"
 						rows="2"
 						class="form-input"
 						required
@@ -28,7 +30,7 @@
 			</div>
 
 			<div class="py-4 flex flex-col gap-4">
-				<h2 class="text-2xl font-bold">Bill To</h2>
+				<h2 class="text-xl font-bold">Bill To</h2>
 				<div>
 					<label class="mb-2 block">Client's Name</label>
 					<input
@@ -50,7 +52,7 @@
 				<div>
 					<label class="mb-2 block">Address</label>
 					<textarea
-						placeholder="Client's address"
+						placeholder="Address"
 						rows="2"
 						class="form-input"
 						required
@@ -94,42 +96,46 @@
 
 			<h3 class="text-lg mb-4 font-semibold">Item List</h3>
 			<div
-				class="flex gap-4 justify-between my-4 items-center text-center"
+				class="flex flex-col md:flex-row gap-4 justify-between my-4 items-center text-center"
 				v-for="(item, index) in items"
 				:key="index">
-				<div>
-					<input
-						placeholder="Item name"
-						class="form-input"
-						v-model="item.name"
-						required />
+				<div class="flex items-center gap-4 flex-1">
+					<div class="w-full">
+						<input
+							placeholder="Item name"
+							class="form-input"
+							v-model="item.name"
+							required />
+					</div>
+					<div class="w-full">
+						<input
+							placeholder="Quantity"
+							class="form-input"
+							type="number"
+							v-model="item.qty"
+							required />
+					</div>
+					<div class="w-full">
+						<input
+							placeholder="Price"
+							class="form-input"
+							type="number"
+							v-model="item.price"
+							required />
+					</div>
 				</div>
-				<div>
-					<input
-						placeholder="Quantity"
-						class="form-input"
-						type="number"
-						v-model="item.qty"
-						required />
+				<div class="flex items-center justify-between gap-4">
+					<div class="min-w-[150px]">
+						<p>Total</p>
+						<b>IDR {{ item.qty * item.price }}</b>
+					</div>
+					<button
+						type="button"
+						class="btn"
+						@click="removeItem(index)">
+						-
+					</button>
 				</div>
-				<div>
-					<input
-						placeholder="Price"
-						class="form-input"
-						type="number"
-						v-model="item.price"
-						required />
-				</div>
-				<div class="min-w-[150px]">
-					<p>Total</p>
-					<b>IDR {{ item.qty * item.price }}</b>
-				</div>
-				<button
-					type="button"
-					class="btn"
-					@click="removeItem(index)">
-					-
-				</button>
 			</div>
 			<div>
 				<button

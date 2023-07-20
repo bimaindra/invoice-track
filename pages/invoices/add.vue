@@ -2,7 +2,7 @@
 <template>
 	<div class="container mx-auto px-4 lg:px-0">
 		<InvoiceForm
-			formTitle="Add Invoice"
+			formTitle="Create Invoice"
 			formButton="Create" />
 	</div>
 </template>

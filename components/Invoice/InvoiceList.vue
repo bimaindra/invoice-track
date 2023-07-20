@@ -56,7 +56,7 @@
 				<div class="hidden md:block ">
 					<Badges :badgeType="invoice.status" />
 				</div>
-				<div class="col-span-2 hidden">
+				<div class="col-span-2 hidden md:block">
 					<router-link
 						:to="`/invoices/${invoice.id}`"
 						class="btn">
