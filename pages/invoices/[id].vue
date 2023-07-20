@@ -1,8 +1,8 @@
 <!-- pages/invoices/[id].vue -->
 <template>
 	<div class="container mx-auto px-4 lg:px-0">
-		<h1 class="text-4xl font-bold mb-2">Invoice Detail</h1>
-		<div class="flex justify-end gap-4 items-center">
+		<h1 class="text-3xl lg:text-4xl font-bold mb-2">Invoice Detail</h1>
+		<div class="flex md:justify-end gap-4 items-center mt-10 md:mt-0">
 			<router-link
 				:to="`/invoices/edit/${invoice.id}`"
 				class="btn btn-success"
@@ -16,7 +16,7 @@
 			<button
 				@click=""
 				class="btn btn-primary">
-				Mark as paid
+				<span class="hidden md:inline-block">Mark as</span> Paid
 			</button>
 			<router-link
 				to="/invoices"
@@ -30,7 +30,7 @@
 				v-if="invoice">
 				#{{ invoice.id }}
 			</h2>
-			<div class="grid md:grid-cols-2">
+			<div class="grid grid-cols-2">
 				<div class="text-left">
 					<h3 class="font-bold text-xl mb-4 underline">From</h3>
 					<p class="mb-4">
