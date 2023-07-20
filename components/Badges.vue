@@ -1,6 +1,6 @@
 <template>
 	<span
-		:class="` text-slate-800 text-xs font-medium mr-2 px-2.5 py-1.5 rounded border ${
+		:class="`text-slate-800 font-medium px-4 py-1.5 rounded border ${
 			badgeType === 'paid'
 				? 'bg-teal-100 border-teal-400'
 				: badgeType === 'pending'
