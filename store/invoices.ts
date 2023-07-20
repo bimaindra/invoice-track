@@ -123,5 +123,17 @@ export const useInvoicesStore = defineStore('invoices', {
 		getInvoiceById: (state) => (id: number) => {
 			return state.invoices.find((invoice) => invoice.id === id);
 		},
+		sortInvoice: (state) => (payload: string) => {
+			return state.invoices.sort((a, b) => {
+				const statusA = a.status.toLowerCase();
+				const statusB = b.status.toLowerCase();
+
+				if (payload === 'pending') {
+					//return a.status.toLowerCase() - b.status.toLowerCase();
+				}
+
+				return 0;
+			});
+		},
 	},
 });

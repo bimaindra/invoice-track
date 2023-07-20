@@ -4,7 +4,7 @@
 		<div class="flex justify-between items-center mb-12">
 			<div>
 				<h1 class="text-3xl lg:text-4xl font-bold mb-2">Invoices</h1>
-				<p>There are {{ invoices.length }} total invoices</p>
+				<p>Total {{ invoices.length }} invoices.</p>
 			</div>
 			<div class="flex gap-4 items-center">
 				<select
@@ -38,14 +38,9 @@
 			const invoicesStore = useInvoicesStore();
 			const filter = ref('');
 
-			const filterInvoice = (payload) => {
-				//invoicesStore.sortInvoice(payload);
-			};
-
 			return {
 				invoices: invoicesStore.invoices,
 				filter,
-				filterInvoice,
 			};
 		},
 	};
