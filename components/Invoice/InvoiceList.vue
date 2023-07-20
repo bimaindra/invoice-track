@@ -6,7 +6,7 @@
 			:key="invoice.id">
 			<NuxtLink
 				:to="`/invoices/${invoice.id}`"
-				class="hover:bg-slate-50 transition grid grid-cols-2 md:grid-cols-10 md:items-center gap-4 md:text-center px-4 py-6 my-4 border rounded-lg">
+				class="hover:bg-slate-50 active:bg-slate-100 transition grid grid-cols-2 md:grid-cols-9 md:items-center gap-4 px-4 md:px-8 py-6 my-4 border rounded-lg">
 				<div class="md:hidden">
 					<p class="text-lg text-ellipsis overflow-hidden mb-4">
 						<b>#{{ invoice.id }}</b>
@@ -35,14 +35,14 @@
 						<b>#{{ invoice.id }}</b>
 					</p>
 				</div>
-				<div class="hidden md:block col-span-2">
+				<div class="hidden md:block col-span-2 text-center">
 					<small>Due:</small>
 					<p class="font-semibold text-sm">{{ invoice.date }}</p>
 				</div>
-				<div class="hidden md:block ">
+				<div class="hidden md:block text-center">
 					<p class="text-ellipsis overflow-hidden">{{ invoice.client.name }}</p>
 				</div>
-				<div class="hidden md:block col-span-2">
+				<div class="hidden md:block col-span-2 text-center">
 					<b
 						>IDR
 						{{
@@ -53,10 +53,10 @@
 						}}</b
 					>
 				</div>
-				<div class="hidden md:block ">
+				<div class="hidden md:block text-center">
 					<Badges :badgeType="invoice.status" />
 				</div>
-				<div class="col-span-2 hidden md:block">
+				<div class="col-span-1 hidden md:block text-right">
 					<button
 						class="btn">
 						View</button
